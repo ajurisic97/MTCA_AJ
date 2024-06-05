@@ -13,7 +13,6 @@ public class QueryResponse<T>
     public int TotalCount { get; }
     public bool HasNextPage => Page * PageSize < TotalCount;
     public bool HasPreviousPage => Page > 1;
-    public PermissionModel AvailableActions { get; set; } = new();
     public List<T> Data { get; }
     public CustomError? ApiError { get; }
 

@@ -6,6 +6,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MTCA.Application.Commons.Interfaces;
+using MTCA.Infrastructure.Authentication;
+using MTCA.Infrastructure.Authentication.Jwt;
+using MTCA.Infrastructure.Authentication.Password;
+using MTCA.Infrastructure.Caching;
+using MTCA.Infrastructure.Logging;
+using MTCA.Infrastructure.Multitenancy;
+using MTCA.Infrastructure.Persistence;
+using MTCA.Infrastructure.Persistence.Initialization;
+using MTCA.Infrastructure.Persistence.Interfaces;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,7 +125,7 @@ public static class DependencyInjections
     //            var _unitOfWorkRepository = scopeApplication.ServiceProvider.GetService<IUnitOfWork>();
     //            var _manufacturerRepository = scopeApplication.ServiceProvider.GetService<IRepository<Manufacturer>>();
 
-    //            var rootPath = Directory.GetParent(Directory.GetCurrentDirectory())!.FullName + "/Softly.ERP.Infrastructure";
+    //            var rootPath = Directory.GetParent(Directory.GetCurrentDirectory())!.FullName + "/MTCA.Infrastructure";
     //            var jsonSettings = new JsonSerializerSettings
     //            {
     //                ContractResolver = new PrivateSetterContractResolver()

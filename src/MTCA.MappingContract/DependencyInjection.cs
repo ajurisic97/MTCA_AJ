@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using MTCA.MappingContract.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
