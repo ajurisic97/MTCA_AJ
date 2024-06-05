@@ -14,7 +14,7 @@ internal class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 {
     public void Configure(EntityTypeBuilder<UserRole> builder)
     {
-        builder.ToTable(TableNames.UserRoles, SchemaNames.Data);
+        builder.ToTable(TableNames.UserRoles, SchemaNames.Identity);
         builder.HasKey(x => new { x.RoleId, x.UserId });
 
 

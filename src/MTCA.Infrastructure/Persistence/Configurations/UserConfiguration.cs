@@ -14,7 +14,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.ToTable(TableNames.Users, SchemaNames.Catalog);
+        builder.ToTable(TableNames.Users, SchemaNames.Identity);
 
         builder.HasKey(t => t.Id);
         builder.Property(x => x.Username)

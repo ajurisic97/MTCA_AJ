@@ -15,7 +15,7 @@ internal class PermissionConfiguration : IEntityTypeConfiguration<Permission>
 {
     public void Configure(EntityTypeBuilder<Permission> builder)
     {
-        builder.ToTable(TableNames.Permissions, SchemaNames.Catalog);
+        builder.ToTable(TableNames.Permissions, SchemaNames.Identity);
 
         builder.HasKey(p => p.Id);
 

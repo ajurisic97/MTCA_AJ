@@ -14,7 +14,7 @@ internal class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
     public void Configure(EntityTypeBuilder<Role> builder)
     {
-        builder.ToTable(TableNames.Roles, SchemaNames.Catalog);
+        builder.ToTable(TableNames.Roles, SchemaNames.Identity);
 
         builder.HasKey(x => x.Id);
 
