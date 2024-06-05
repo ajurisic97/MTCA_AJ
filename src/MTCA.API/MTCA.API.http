@@ -1,6 +1,6 @@
 @MTCA.API_HostAddress = http://localhost:5181
 
-GET {{MTCA.API_HostAddress}}/weatherforecast/
-Accept: application/json
+# GET {{MTCA.API_HostAddress}}/weatherforecast/
+# Accept: application/json
 
-###
+# ###

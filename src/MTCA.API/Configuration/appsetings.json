@@ -1,0 +1,19 @@
+{
+  "ConnectionStrings": {
+    //"Database": "Data Source="
+  },
+  "Jwt": {
+    "Issuer": "Pos",
+    "Audience": "Pos",
+    "SecretKey": "super-secret-key-value-for-erp-project!"
+
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+
+} 
