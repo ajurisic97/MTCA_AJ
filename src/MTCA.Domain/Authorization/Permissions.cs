@@ -19,6 +19,7 @@ public static class ResourceCatalog
     public const string People = nameof(People);
     public const string Roles = nameof(Roles);
     public const string RolePermissions = nameof(RolePermissions);
+    public const string Permissions = nameof(RolePermissions);
     public const string Users = nameof(Users);
     public const string UserRoles = nameof(UserRoles);
     public const string Tenants = nameof(Tenants);
@@ -47,6 +48,12 @@ public static class Permissions
         new(0, ActionCatalog.Create, ResourceCatalog.Roles),
         new(0, ActionCatalog.Update, ResourceCatalog.Roles),
         new(0, ActionCatalog.Delete, ResourceCatalog.Roles),
+
+        new(0, ActionCatalog.View, ResourceCatalog.Permissions),
+        new(0, ActionCatalog.Search, ResourceCatalog.Permissions),
+        new(0, ActionCatalog.Create, ResourceCatalog.Permissions),
+        new(0, ActionCatalog.Update, ResourceCatalog.Permissions),
+        new(0, ActionCatalog.Delete, ResourceCatalog.Permissions),
 
         new(0, ActionCatalog.View, ResourceCatalog.RolePermissions),
         new(0, ActionCatalog.Search, ResourceCatalog.RolePermissions),

@@ -7,9 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Softly.ERP.Domain.Models;
 
-namespace MTCA.Infrastructure.Persistence.Configurations;
+namespace MTCA.Infrastructure.Persistence.Configurations.Catalog;
 
 internal class PersonConfiguration : IEntityTypeConfiguration<Person>
 {

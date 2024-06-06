@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MTCA.Infrastructure.Persistence.Configurations;
+namespace MTCA.Infrastructure.Persistence.Configurations.Identity;
 
 internal class PermissionConfiguration : IEntityTypeConfiguration<Permission>
 {
@@ -20,8 +20,8 @@ internal class PermissionConfiguration : IEntityTypeConfiguration<Permission>
         builder.HasKey(p => p.Id);
 
         builder.Property(e => e.Id)
-            .ValueGeneratedOnAdd() 
-            .UseIdentityColumn(); 
+            .ValueGeneratedOnAdd()
+            .UseIdentityColumn();
 
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MTCA.Infrastructure.Persistence.Configurations;
+namespace MTCA.Infrastructure.Persistence.Configurations.Identity;
 
 internal class UserConfiguration : IEntityTypeConfiguration<User>
 {

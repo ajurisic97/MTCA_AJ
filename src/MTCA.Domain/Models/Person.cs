@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Softly.ERP.Domain.Models;
+namespace MTCA.Domain.Models;
 
 public class Person : AuditableEntity
 {
