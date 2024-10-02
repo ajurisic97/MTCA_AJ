@@ -4,6 +4,7 @@ using MTCA.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MTCA.Infrastructure.Migrations.AppDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240930143312_AddressMigration")]
+    partial class AddressMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,9 +62,6 @@ namespace MTCA.Infrastructure.Migrations.AppDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("RegionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("TenantId")
                         .HasColumnType("nvarchar(max)");
 
@@ -69,9 +69,28 @@ namespace MTCA.Infrastructure.Migrations.AppDb
 
                     b.HasIndex("CountryId");
 
+                    b.ToTable("Cities", "Catalog");
+                });
+
+            modelBuilder.Entity("MTCA.Domain.Models.CityRegion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RegionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
                     b.HasIndex("RegionId");
 
-                    b.ToTable("Cities", "Catalog");
+                    b.ToTable("CityRegions", "Data");
                 });
 
             modelBuilder.Entity("MTCA.Domain.Models.Country", b =>
@@ -108,17 +127,33 @@ namespace MTCA.Infrastructure.Migrations.AppDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("RegionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("TenantId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.ToTable("Countries", "Catalog");
+                });
+
+            modelBuilder.Entity("MTCA.Domain.Models.CountryRegion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CountryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RegionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
                     b.HasIndex("RegionId");
 
-                    b.ToTable("Countries", "Catalog");
+                    b.ToTable("CountryRegions", "Data");
                 });
 
             modelBuilder.Entity("MTCA.Domain.Models.Permission", b =>
@@ -305,9 +340,6 @@ namespace MTCA.Infrastructure.Migrations.AppDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("RegionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("TenantId")
                         .HasColumnType("nvarchar(max)");
 
@@ -315,9 +347,28 @@ namespace MTCA.Infrastructure.Migrations.AppDb
 
                     b.HasIndex("CityId");
 
+                    b.ToTable("Streets", "Catalog");
+                });
+
+            modelBuilder.Entity("MTCA.Domain.Models.StreetRegion", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RegionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("StreetId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
                     b.HasIndex("RegionId");
 
-                    b.ToTable("Streets", "Catalog");
+                    b.HasIndex("StreetId");
+
+                    b.ToTable("StreetRegions", "Data");
                 });
 
             modelBuilder.Entity("MTCA.Domain.Models.User", b =>
@@ -396,20 +447,43 @@ namespace MTCA.Infrastructure.Migrations.AppDb
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MTCA.Domain.Models.Region", "Region")
-                        .WithMany("Cities")
-                        .HasForeignKey("RegionId");
-
                     b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("MTCA.Domain.Models.CityRegion", b =>
+                {
+                    b.HasOne("MTCA.Domain.Models.City", "City")
+                        .WithMany("CityRegions")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MTCA.Domain.Models.Region", "Region")
+                        .WithMany("CityRegions")
+                        .HasForeignKey("RegionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("City");
 
                     b.Navigation("Region");
                 });
 
-            modelBuilder.Entity("MTCA.Domain.Models.Country", b =>
+            modelBuilder.Entity("MTCA.Domain.Models.CountryRegion", b =>
                 {
+                    b.HasOne("MTCA.Domain.Models.Country", "Country")
+                        .WithMany("CountryRegions")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("MTCA.Domain.Models.Region", "Region")
-                        .WithMany("Countries")
-                        .HasForeignKey("RegionId");
+                        .WithMany("CountryRegions")
+                        .HasForeignKey("RegionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Country");
 
                     b.Navigation("Region");
                 });
@@ -446,13 +520,26 @@ namespace MTCA.Infrastructure.Migrations.AppDb
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MTCA.Domain.Models.Region", "Region")
-                        .WithMany("Streets")
-                        .HasForeignKey("RegionId");
-
                     b.Navigation("City");
+                });
+
+            modelBuilder.Entity("MTCA.Domain.Models.StreetRegion", b =>
+                {
+                    b.HasOne("MTCA.Domain.Models.Region", "Region")
+                        .WithMany("StreetRegions")
+                        .HasForeignKey("RegionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MTCA.Domain.Models.Street", "Street")
+                        .WithMany("StreetRegions")
+                        .HasForeignKey("StreetId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Region");
+
+                    b.Navigation("Street");
                 });
 
             modelBuilder.Entity("MTCA.Domain.Models.User", b =>
@@ -481,12 +568,16 @@ namespace MTCA.Infrastructure.Migrations.AppDb
 
             modelBuilder.Entity("MTCA.Domain.Models.City", b =>
                 {
+                    b.Navigation("CityRegions");
+
                     b.Navigation("Streets");
                 });
 
             modelBuilder.Entity("MTCA.Domain.Models.Country", b =>
                 {
                     b.Navigation("Cities");
+
+                    b.Navigation("CountryRegions");
                 });
 
             modelBuilder.Entity("MTCA.Domain.Models.Permission", b =>
@@ -503,11 +594,16 @@ namespace MTCA.Infrastructure.Migrations.AppDb
                 {
                     b.Navigation("Children");
 
-                    b.Navigation("Cities");
+                    b.Navigation("CityRegions");
 
-                    b.Navigation("Countries");
+                    b.Navigation("CountryRegions");
 
-                    b.Navigation("Streets");
+                    b.Navigation("StreetRegions");
+                });
+
+            modelBuilder.Entity("MTCA.Domain.Models.Street", b =>
+                {
+                    b.Navigation("StreetRegions");
                 });
 #pragma warning restore 612, 618
         }

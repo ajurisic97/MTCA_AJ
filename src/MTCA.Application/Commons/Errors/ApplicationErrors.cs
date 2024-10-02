@@ -76,6 +76,15 @@ internal class ApplicationErrors
                 "The GuiPermissionRole with specified GuiPermissionId and RoleId was not found!");
     }
 
+    public static class Region
+    {
+        public static readonly Error RegionNotFound = new Error(
+                "NotFound",
+                "The Region with specified Id was not found!");
 
+        public static readonly Error RegionCannotBeDeleted = new Error(
+                "CannotBeDeleted",
+                "The Region is in use in one or more of other tables !");
+    }
 
 }

@@ -24,4 +24,8 @@
     <ProjectReference Include="..\MTCA.Domain\MTCA.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\Configurations\Data\" />
+  </ItemGroup>
+
 </Project>

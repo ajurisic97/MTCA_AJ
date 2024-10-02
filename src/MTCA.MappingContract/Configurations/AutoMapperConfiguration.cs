@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MTCA.MappingContract.Catalog;
 using MTCA.MappingContract.Profiles.Catalog;
 using MTCA.MappingContract.Profiles.Identity;
 
@@ -20,7 +21,7 @@ public class AutoMapperConfiguration
             #region Catalog
 
             cfg.AddProfile<PersonProfile>();
-
+            cfg.AddProfile<RegionProfile>();
             #endregion
 
             #region Data
