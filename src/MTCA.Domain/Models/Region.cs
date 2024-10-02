@@ -40,4 +40,12 @@ public class Region : AuditableEntity
     {
         return new Region(Guid.NewGuid(), name, regionType, customRegionName, longitude, latitude, parentId);
     }
+
+    public void Update(string name, string customRegionName, decimal? longitude, decimal? latitude) 
+    {
+        Name = name;
+        CustomRegionName = customRegionName;
+        Longitude = longitude; 
+        Latitude = latitude;
+    }
 }

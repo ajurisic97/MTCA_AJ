@@ -4,10 +4,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MTCA.API.Abstractions;
 using MTCA.API.Contracts.Catalog.Region;
+using MTCA.API.Contracts.Catalog.Street;
 using MTCA.Application.Catalog.Regions.Create;
 using MTCA.Application.Catalog.Regions.Delete;
 using MTCA.Application.Catalog.Regions.GetAll;
 using MTCA.Application.Catalog.Regions.GetById;
+using MTCA.Application.Catalog.Regions.Update;
+using MTCA.Application.Catalog.Streets.Update;
 using MTCA.Application.Commons.Models;
 using MTCA.Domain.Authorization;
 using MTCA.Infrastructure.Authentication;
@@ -80,4 +83,15 @@ public class RegionController : ApiController
 
         return response.IsSuccess ? Ok(response.Value) : HandleFailure<CommandResponse<string>>(response);
     }
+
+    //[HasPermission(ActionCatalog.Update, ResourceCatalog.Regions)]
+    [HttpPut]
+    public async Task<IActionResult> Update(UpdateRegionRequest request)
+    {
+        var command = new UpdateRegionCommand(request.Id, request.Name, request.CustomRegionName, request.Longitude, request.Latitude);
+        var response = await Sender.Send(command);
+        return response.IsSuccess ? Ok(response.Value) : HandleFailure<CommandResponse<string>>(response);
+
+    }
+
 }

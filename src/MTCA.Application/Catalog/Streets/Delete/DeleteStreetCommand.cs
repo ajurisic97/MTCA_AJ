@@ -8,4 +8,4 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MTCA.Application.Catalog.Streets.Delete;
-public record DeleteStreetCommand(Guid Id) : ICommand<QueryResponse<Guid>>;
+public record DeleteStreetCommand(Guid Id) : ICommand<CommandResponse<Guid>>;

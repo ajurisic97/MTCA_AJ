@@ -16,4 +16,20 @@ public class Country : AuditableEntity
     public virtual Region? Region {  get; private set; }
     public ICollection<City> Cities { get; private set; } = new List<City>();
 
+    public Country()
+    {
+
+    }
+    private Country(Guid id, string name, decimal? longitude, decimal? latitude, Guid? regionId)
+    {
+        Id = id;
+        Name = name;
+        Longitude = longitude;
+        Latitude = latitude;
+        RegionId = regionId;
+    }
+    public static Country Create(string name, decimal? longitude, decimal? latitude, Guid? regionId)
+    {
+        return new Country(Guid.NewGuid(), name, longitude, latitude, regionId);
+    }
 }

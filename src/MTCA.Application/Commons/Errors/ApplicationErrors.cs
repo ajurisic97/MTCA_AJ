@@ -87,4 +87,37 @@ internal class ApplicationErrors
                 "The Region is in use in one or more of other tables !");
     }
 
+    public static class Street
+    {
+        public static readonly Error StreetNotFound = new Error(
+                "NotFound",
+                "The Street with specified Id was not found!");
+
+        public static readonly Error StreetCannotBeDeleted = new Error(
+                "CannotBeDeleted",
+                "The Street is in use in one or more of other tables !");
+    }
+
+    public static class City
+    {
+        public static readonly Error CityNotFound = new Error(
+                "NotFound",
+                "The City with specified Id was not found!");
+
+        public static readonly Error CityCannotBeDeleted = new Error(
+                "CannotBeDeleted",
+                "The City is in use in one or more of other tables !");
+    }
+
+    public static class Country
+    {
+        public static readonly Error CountryNotFound = new Error(
+                "NotFound",
+                "The Country with specified Id was not found!");
+
+        public static readonly Error CountryCannotBeDeleted = new Error(
+                "CannotBeDeleted",
+                "The Country is in use in one or more of other tables !");
+    }
+
 }

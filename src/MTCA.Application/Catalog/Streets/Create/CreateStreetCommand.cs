@@ -8,4 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MTCA.Application.Catalog.Streets.Create;
-public record CreateStreetCommand : ICommand<QueryResponse<StreetDto>>;
+public record CreateStreetCommand(
+    string Name,
+    decimal? Longitude,
+    decimal? Latitude,
+    Guid CityId,
+    Guid? RegionId) : ICommand<CommandResponse<Guid>>;

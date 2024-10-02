@@ -17,4 +17,31 @@ public class Street : AuditableEntity
     public virtual City City { get; private set; }
     public Guid? RegionId { get; private set; }
     public virtual Region? Region { get; private set; }
+
+    public Street()
+    {
+
+    }
+    private Street(Guid id, string name, decimal? longitude, decimal? latitude, Guid cityId, Guid? regionId)
+    {
+        Id = id;
+        Name = name;
+        Longitude = longitude;
+        Latitude = latitude;
+        CityId = cityId;
+        RegionId = regionId;
+    }
+    public static Street Create(string name, decimal? longitude, decimal? latitude, Guid cityId, Guid? regionId)
+    {
+        return new Street(Guid.NewGuid(), name, longitude,latitude,cityId,regionId);
+    }
+
+
+    public void Update(string name, Guid? regionId, decimal? longitude, decimal? latitude)
+    {
+        Name = name;
+        Longitude = longitude;
+        Latitude = latitude;
+        RegionId = regionId;
+    }
 }

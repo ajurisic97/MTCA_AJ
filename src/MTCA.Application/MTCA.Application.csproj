@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Catalog\Cities\" />
-    <Folder Include="Catalog\Regions\Update\" />
   </ItemGroup>
 
 </Project>

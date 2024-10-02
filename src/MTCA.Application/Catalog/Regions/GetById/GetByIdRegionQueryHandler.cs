@@ -40,7 +40,7 @@ internal class GetByIdRegionQueryHandler : IQueryHandler<GetByIdRegionQuery, Que
             }
 
             var resultDto = _mapper.Map<Region, RegionExtendedDto>(result);
-            var response = new QueryResponse<RegionExtendedDto>(new List<RegionExtendedDto> { resultDto },1, 1, 1);
+            var response = new QueryResponse<RegionExtendedDto>(new List<RegionExtendedDto> { resultDto });
 
             return response;
         }

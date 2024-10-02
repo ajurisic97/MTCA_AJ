@@ -22,6 +22,10 @@ public class AutoMapperConfiguration
 
             cfg.AddProfile<PersonProfile>();
             cfg.AddProfile<RegionProfile>();
+            cfg.AddProfile<StreetProfile>();
+            cfg.AddProfile<CityProfile>();
+            cfg.AddProfile<CountryProfile>();
+
             #endregion
 
             #region Data
