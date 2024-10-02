@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTCA.API", "MTCA.API\MTCA.API.csproj", "{EE12C855-DED3-4D68-A396-C879CE41DA04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTCA.Application", "MTCA.Application\MTCA.Application.csproj", "{1334D4A2-780E-4436-BB3D-885DA629FDC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTCA.Domain", "MTCA.Domain\MTCA.Domain.csproj", "{65758A9F-AF35-4D43-A7B1-9C9D8184FE29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTCA.Infrastructure", "MTCA.Infrastructure\MTCA.Infrastructure.csproj", "{3B64059B-3130-4510-9F4C-07E65F14708F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTCA.MappingContract", "MTCA.MappingContract\MTCA.MappingContract.csproj", "{7B2DE75E-A506-4B12-ADC2-E2ED24E03F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTCA.Shared", "MTCA.Shared\MTCA.Shared.csproj", "{1A2730B5-5248-4508-ADBF-C47F227DBB8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0270E60-A004-47EC-8A35-195EFB13046A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE12C855-DED3-4D68-A396-C879CE41DA04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE12C855-DED3-4D68-A396-C879CE41DA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE12C855-DED3-4D68-A396-C879CE41DA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE12C855-DED3-4D68-A396-C879CE41DA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1334D4A2-780E-4436-BB3D-885DA629FDC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1334D4A2-780E-4436-BB3D-885DA629FDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1334D4A2-780E-4436-BB3D-885DA629FDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1334D4A2-780E-4436-BB3D-885DA629FDC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65758A9F-AF35-4D43-A7B1-9C9D8184FE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65758A9F-AF35-4D43-A7B1-9C9D8184FE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65758A9F-AF35-4D43-A7B1-9C9D8184FE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65758A9F-AF35-4D43-A7B1-9C9D8184FE29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B64059B-3130-4510-9F4C-07E65F14708F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B64059B-3130-4510-9F4C-07E65F14708F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B64059B-3130-4510-9F4C-07E65F14708F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B64059B-3130-4510-9F4C-07E65F14708F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2DE75E-A506-4B12-ADC2-E2ED24E03F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2DE75E-A506-4B12-ADC2-E2ED24E03F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2DE75E-A506-4B12-ADC2-E2ED24E03F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2DE75E-A506-4B12-ADC2-E2ED24E03F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A2730B5-5248-4508-ADBF-C47F227DBB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2730B5-5248-4508-ADBF-C47F227DBB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2730B5-5248-4508-ADBF-C47F227DBB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2730B5-5248-4508-ADBF-C47F227DBB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DEE0072-C0EF-4992-A47D-230792134F6B}
+	EndGlobalSection
+EndGlobal
